@@ -4258,3 +4258,110 @@ Stack trace:
 REQUEST_URI=/requisicion/index.php/shop/order/create
 HTTP_REFERER=http://localhost/requisicion/index.php/shop/shoppingCart/view
 ---
+2014/07/10 00:50:14 [error] [exception.CException] exception 'CException' with message 'Please specify the "data" property.' in C:\wamp\www\yii\framework\zii\widgets\CDetailView.php:137
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CBaseController.php(147): CDetailView->init()
+#1 C:\wamp\www\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CDe...', Array)
+#2 C:\wamp\www\requisicion\protected\modules\shop\views\shippingMethod\choose.php(41): CBaseController->widget('zii.widgets.CDe...', Array)
+#3 C:\wamp\www\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\req...')
+#4 C:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\req...', Array, true)
+#5 C:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\req...', Array, true)
+#6 C:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('/shippingMethod...', Array, true)
+#7 C:\wamp\www\requisicion\protected\modules\shop\controllers\OrderController.php(127): CController->render('/shippingMethod...', Array)
+#8 [internal function]: OrderController->actionCreate(NULL, NULL, NULL)
+#9 C:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(OrderController), Array)
+#10 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(OrderController), Object(ReflectionMethod), Array)
+#11 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 C:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 C:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#20 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('shop/order/crea...')
+#21 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 C:\wamp\www\requisicion\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/requisicion/index.php/shop/order/create
+---
+2014/07/10 00:50:19 [error] [exception.CException] exception 'CException' with message 'Please specify the "data" property.' in C:\wamp\www\yii\framework\zii\widgets\CDetailView.php:137
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CBaseController.php(147): CDetailView->init()
+#1 C:\wamp\www\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CDe...', Array)
+#2 C:\wamp\www\requisicion\protected\modules\shop\views\shippingMethod\choose.php(41): CBaseController->widget('zii.widgets.CDe...', Array)
+#3 C:\wamp\www\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\req...')
+#4 C:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\req...', Array, true)
+#5 C:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\req...', Array, true)
+#6 C:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('/shippingMethod...', Array, true)
+#7 C:\wamp\www\requisicion\protected\modules\shop\controllers\OrderController.php(127): CController->render('/shippingMethod...', Array)
+#8 [internal function]: OrderController->actionCreate(NULL, NULL, NULL)
+#9 C:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(OrderController), Array)
+#10 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(OrderController), Object(ReflectionMethod), Array)
+#11 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 C:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 C:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#20 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('shop/order/crea...')
+#21 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 C:\wamp\www\requisicion\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/requisicion/index.php/shop/order/create
+---
+2014/07/10 00:50:23 [error] [exception.CException] exception 'CException' with message 'Please specify the "data" property.' in C:\wamp\www\yii\framework\zii\widgets\CDetailView.php:137
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CBaseController.php(147): CDetailView->init()
+#1 C:\wamp\www\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CDe...', Array)
+#2 C:\wamp\www\requisicion\protected\modules\shop\views\shippingMethod\choose.php(41): CBaseController->widget('zii.widgets.CDe...', Array)
+#3 C:\wamp\www\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\req...')
+#4 C:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\req...', Array, true)
+#5 C:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\req...', Array, true)
+#6 C:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('/shippingMethod...', Array, true)
+#7 C:\wamp\www\requisicion\protected\modules\shop\controllers\OrderController.php(127): CController->render('/shippingMethod...', Array)
+#8 [internal function]: OrderController->actionCreate(NULL, NULL, NULL)
+#9 C:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(OrderController), Array)
+#10 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(OrderController), Object(ReflectionMethod), Array)
+#11 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 C:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 C:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#20 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('shop/order/crea...')
+#21 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 C:\wamp\www\requisicion\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/requisicion/index.php/shop/order/create
+HTTP_REFERER=http://localhost/requisicion/index.php/shop/shoppingCart/view
+---
+2014/07/10 19:39:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\wamp\www\requisicion\protected\modules\shop\controllers\OrderController.php:238
+Stack trace:
+#0 C:\wamp\www\requisicion\protected\modules\shop\controllers\OrderController.php(36): OrderController->loadModel('logo.jpg')
+#1 [internal function]: OrderController->actionInvoice('logo.jpg')
+#2 C:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(OrderController), Array)
+#3 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(OrderController), Object(ReflectionMethod), Array)
+#4 C:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('invoice')
+#13 C:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('shop/order/invo...')
+#14 C:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\wamp\www\requisicion\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/requisicion/index.php/shop/order/invoice/id/logo.jpg
+HTTP_REFERER=http://localhost/requisicion/index.php/shop/order/invoice/id/2
+---
