@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 <h2> <?php echo Shop::t('Order') ?> #<?php echo $model->order_id; ?></h2>
 
-<h3> <?php echo Shop::t('Ordering Info'); ?> </h3>
+<h3> <?php echo Shop::t('Informacion de requisicion'); ?> </h3>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 			'data'=>$model,
@@ -25,7 +25,7 @@ $this->breadcrumbs=array(
 				),
 			)); ?>
 
-<h3> <?php echo Shop::t('Customer Info'); ?> </h3>
+<h3> <?php echo Shop::t('Informacion de Usuario'); ?> </h3>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 			'data'=>$model->customer,
@@ -35,7 +35,7 @@ $this->breadcrumbs=array(
 			)); ?>
 
 <div class="summary_delivery_address">
-<h3> <?php echo Shop::t('Delivery address'); ?> </h3>
+<h3> <?php echo Shop::t('Direccion de entrega'); ?> </h3>
 <?php $this->widget('zii.widgets.CDetailView', array(
 			'data'=>$model->deliveryAddress,
 			'attributes'=>array(
@@ -50,7 +50,7 @@ $this->breadcrumbs=array(
 </div>
 
 <div class="summary_billing_address">
-<h3> <?php echo Shop::t('Billing address'); ?> </h3>
+<h3> <?php echo Shop::t('Direccion de Pago'); ?> </h3>
 <?php $this->widget('zii.widgets.CDetailView', array(
 			'data'=>$model->billingAddress,
 			'attributes'=>array(
@@ -72,7 +72,7 @@ $this->renderPartial('/shippingMethod/view', array(
 ?>
 
 
-<h3> <?php echo Shop::t('Ordered Products'); ?> </h3>
+<h3> <?php echo Shop::t('Productos Ordenados'); ?> </h3>
 
 <?php foreach($model->products as $product) {
 	$this->widget('zii.widgets.CDetailView', array(
@@ -98,13 +98,13 @@ $this->renderPartial('/shippingMethod/view', array(
 <div class="buttons"> 
 <?php
 
-echo CHtml::link(Shop::t('Delivery slip'), array(
+echo CHtml::link(Shop::t('Remision'), array(
 			'//shop/order/slip', 'id' => $model->order_id )); 
 
-echo CHtml::link(Shop::t('Invoice'), array(
+echo CHtml::link(Shop::t('Factura'), array(
 			'//shop/order/invoice', 'id' => $model->order_id)); 
 
-echo CHtml::link(Shop::t('Back to Orders'), array(
+echo CHtml::link(Shop::t('Volver a requisiciones de compra'), array(
 			'//shop/order/admin')); 
 
 ?>

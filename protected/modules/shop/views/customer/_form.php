@@ -45,6 +45,8 @@ $form=$this->beginWidget('CActiveForm', array(
 
 	<div class="row">
 		<?php echo $form->labelEx($address,'city'); ?>
+		<?php echo $form->textField($address,'zipcode',array('size'=>10,'maxlength'=>45)); ?>
+		<?php echo $form->error($address,'zipcode'); ?>
 		<?php echo $form->textField($address,'city',array('size'=>32,'maxlength'=>45)); ?>
 		<?php echo $form->error($address,'city'); ?>
 	</div>

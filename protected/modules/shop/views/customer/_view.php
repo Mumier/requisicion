@@ -9,11 +9,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('address')); ?>:</b>
-	<?php echo CHtml::encode($data->address); ?>
+	<?php echo CHtml::encode($address->address); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('zipcode')); ?>:</b>
-	<?php echo CHtml::encode($data->zipcode); ?>
+	<?php echo CHtml::encode($address->zipcode); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('city')); ?>:</b>

@@ -1,4 +1,4 @@
-<table><tr><td><font size="1" face="Verdana, Arial, Helvetica, sans-serif">This is some example footer. Please provide some example data with all your transactions. <strong>For example, include your Name and your Address</strong></font></td></tr></table>
+<table><tr><td><font size="1" face="Verdana, Arial, Helvetica, sans-serif"> <strong></strong></font></td></tr></table>
 <hr noshade size="1" color="#000000">
 <table align="left" width="100%" style="font-size:8px; font-family:Verdana, Arial, Helvetica, sans-serif;">
 <tr><td width="33%" valign="top">

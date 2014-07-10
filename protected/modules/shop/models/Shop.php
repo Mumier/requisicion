@@ -3,6 +3,7 @@
 	class Shop {
 		public static function mailNotification ($order) {
 			$email = Shop::module()->notifyAdminEmail;
+			$title = 'Requisicion';
 			if($email !== null) {
 				$appTitle = Yii::app()->name;
 				$headers="From: {$title}\r\nReply-To: {do@not-reply.org}";
