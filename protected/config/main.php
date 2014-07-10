@@ -30,7 +30,7 @@ return array(
         ),
 
         'shop' => array(
-            'debug' => false,
+            'debug' => true,
             
             'currencySymbol' => '$',
 
@@ -75,7 +75,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=192.168.1.115;dbname=requisicion',
+			'connectionString' => 'mysql:host=localhost;dbname=requisicion',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',

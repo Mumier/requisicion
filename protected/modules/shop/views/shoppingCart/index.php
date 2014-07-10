@@ -1,5 +1,5 @@
 <h3> 
-<?php echo Yii::t('ShopModule.shop', 'Your Shopping Cart'); ?> 
+<?php echo Yii::t('ShopModule.shop', 'Su Carro de Compras'); ?> 
 </h3>
 <hr />
 
@@ -19,7 +19,7 @@ if(isset($carts))
 			CHtml::link($cart->Product->title, 
 				array('products/view', 'id' => $cart->Product->product_id)
 			),
-			CHtml::link(Yii::t('ShopModule.shop', 'Remove from Cart'),
+			CHtml::link(Yii::t('ShopModule.shop', 'Eliminar del carro'),
 	  		array('shoppingCart/delete', 'id' => $cart->cart_id)
 	  	)
 		) ;
@@ -28,11 +28,11 @@ if(isset($carts))
 	</ul>
 	<hr />
 
-<?php	echo CHtml::link(Yii::t('ShopModule.shop', 'Configure Cart'), array('shoppingCart/admin')); ?>
+<?php	echo CHtml::link(Yii::t('ShopModule.shop', 'Configurar carro'), array('shoppingCart/admin')); ?>
 &nbsp;
-<?php	echo CHtml::link(Yii::t('ShopModule.shop', 'Buy this items'), array('order/create')); 
+<?php	echo CHtml::link(Yii::t('ShopModule.shop', 'Comprar estos productos'), array('order/create')); 
 
 } else
-		echo Yii::t('ShopModule.shop', 'Your shopping Cart is empty.');
+		echo Yii::t('ShopModule.shop', 'Su carro de compras esta vacio.');
 
 ?>

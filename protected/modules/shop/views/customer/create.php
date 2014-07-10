@@ -8,23 +8,23 @@ if(!isset($address))
 	$address = new Address;
 
 $this->breadcrumbs=array(
-		Yii::t('ShopModule.shop', 'Customers')=>array('index'),
-		Yii::t('ShopModule.shop', 'Register as a new Customer'),
+		Yii::t('ShopModule.shop', 'Usuarios')=>array('index'),
+		Yii::t('ShopModule.shop', 'Registrar nuevo usuario'),
 		);
 
 ?>
 
-<h2> <?php echo Shop::t('Please enter your Customer information'); ?> </h2>
+<h2> <?php echo Shop::t('Por favor ingrese sus datos de usuario'); ?> </h2>
 
-<h3> <?php echo Shop::t('I am a registered customer'); ?></h3>
+<h3> <?php echo Shop::t('Ya tengo un usuario'); ?></h3>
 
-<p> <?php echo Shop::t('Click {link} if you are already registered', array(
-	'{link}' =>  CHtml::link(Shop::t('here'), Shop::module()->loginUrl))); ?> 
+<p> <?php echo Shop::t('Click {link} si ya se encuentra registrado', array(
+	'{link}' =>  CHtml::link(Shop::t('aqui'), Shop::module()->loginUrl))); ?> 
 </p>
 <hr />
-<h3><?php echo Shop::t('I am a new customer'); ?></h3>
-<p><?php echo Shop::t('Registration information'); ?></p>
-<p><strong> <?php echo Shop::t('Please enter your Customer information'); ?></strong> </p>
+<h3><?php echo Shop::t('Soy un usuario nuevo'); ?></h3>
+<p><?php echo Shop::t('Informacion de registro'); ?></p>
+<p><strong> <?php echo Shop::t('Por favor ingrese sus datos de usuario'); ?></strong> </p>
 	<?php
 
 if($address === null)
