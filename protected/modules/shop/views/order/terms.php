@@ -1,4 +1,4 @@
-<p> Please replace this placeholder with your terms and conditions. </p>
+<p> </p>
 
-<?php echo CHtml::checkBox('accept_terms', 0); ?>
-<?php echo CHtml::label('I accept the terms and conditions', 'accept_terms'); ?>
+<?php echo CHtml::checkBox('Aceptar terminos', 0); ?>
+<?php echo CHtml::label('Acepto los terminos y condiciones', 'Aceotar'); ?>

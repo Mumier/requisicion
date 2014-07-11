@@ -55,9 +55,9 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
     <td>
 	<table width="100%" border="0" cellpadding="3" cellspacing="0" bgcolor="f1f1f1">
         <tr> 
-          <td colspan="2" style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><div align="center"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Amount'); ?></font></strong></div></td>
-          <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Product'); ?></font></strong></td>
-		  <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Product number'); ?></font></strong></td>
+          <td colspan="2" style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><div align="center"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Cantidad'); ?></font></strong></div></td>
+          <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Producto'); ?></font></strong></td>
+		  <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Numero de Producto'); ?></font></strong></td>
         </tr>
 <?php foreach($model->products as $position) { ?>
         <tr> 
