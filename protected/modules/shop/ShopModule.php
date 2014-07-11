@@ -39,13 +39,13 @@ class ShopModule extends CWebModule
 	public $imageWidthThumb = 100;
 	public $imageWidth = 200;
 
-	public $notifyAdminEmail = 'jamumi14@gmail';
+	public $notifyAdminEmail = "jamumi14@gmail.com";
 
 	public $termsView = '/order/terms';
 	public $successAction = array('//shop/order/success');
 	public $failureAction = array('//shop/order/failure');
 
-	public $loginUrl = array('/user/login');
+	public $loginUrl = array('/site/login');
 
 	// Where the uploaded product images are stored:
 	public $productImagesFolder = 'productimages'; // Approot/...

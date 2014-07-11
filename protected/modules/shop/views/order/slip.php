@@ -26,12 +26,12 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
         <tr bgcolor="#f1f1f1"> 
           <td width="50%"> 
             <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>
-							<?php echo Shop::t('Delivery address'); ?>
+							<?php echo Shop::t('Direccion de entrega'); ?>
             </strong><br>
           </font></p></td>
           <td> 
             <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>              </strong><strong>
-							<?php echo Shop::t('Billing address'); ?>
+							<?php echo Shop::t('Direccion de Pago'); ?>
             </strong><br>
           </font> </p></td>
         </tr>

@@ -4,7 +4,7 @@ Yii::import('zii.widgets.CPortlet');
 
 class AdminWidget extends CPortlet {
 	public function	init() {
-		$this->title = Shop::t('Administracion');
+		$this->title = Shop::t('Administration');
 		return parent::init();
 	}
 

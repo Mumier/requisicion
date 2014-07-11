@@ -3,16 +3,15 @@
 	class Shop {
 		public static function mailNotification ($order) {
 			$email = Shop::module()->notifyAdminEmail;
-			$title = 'Requisicion';
+			$title = "Requisicion Nueva";
 			if($email !== null) {
 				$appTitle = Yii::app()->name;
 				$headers="From: {$title}\r\nReply-To: {do@not-reply.org}";
 
 				mail($email,
-						Shop::t('Order #{order_id} has been made in your Webshop', array(
-								'{order_id}' => $order->id)),
+						Shop::t('Se ha generado una nueva requisicion de compra'),
 						CHtml::link(Shop::t('direct link'), array(
-								'//shop/order/view', 'id' => $order->id)));
+								'//shop/order/view', 'id' => '2')));
 			}
 		}
 
