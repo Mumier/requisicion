@@ -4,7 +4,7 @@ Yii::import('zii.widgets.CPortlet');
 class ProductCategoriesWidget extends CPortlet {
 
 	public function init() {
-		$this->title = Shop::t('Product Categories');
+		$this->title = Shop::t('Categorias de productos');
 		return parent::init();
 	}
 

@@ -19,14 +19,14 @@ if(!isset($this->breadcrumbs) || ($this->breadcrumbs== array()))
 <?php
 if($products) {
 	echo '<table cellpadding="0" cellspacing="0" class="shopping_cart">';
-	printf('<tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th><th style="width:60px;">%s</th><th style="width:60px;">%s</th><th>%s</th></tr>',
-			Shop::t('Image'),
-			Shop::t('Amount'),
-			Shop::t('Product'),
-			Shop::t('Variation'),
-			Shop::t('Price Single'),
-			Shop::t('Sum'),
-			Shop::t('Actions')
+	printf('<tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th><th style="width:140px;">%s</th><th style="width:140px;">%s</th><th>%s</th></tr>',
+			Shop::t('Imagen'),
+			Shop::t('Cantidad'),
+			Shop::t('Productos'),
+			Shop::t(''),
+			Shop::t('Precio unitario'),
+			Shop::t('Subtotal'),
+			Shop::t('Acciones')
 );
 
 	foreach($products as $position => $product) {
@@ -44,7 +44,7 @@ if($products) {
 				}
 			}
 
-			printf('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class="text-right">%s</td><td class="text-right price_'.$position.'">%s</td><td>%s</td></tr>',
+			printf('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td  class="text-right">%s</td><td class="text-right price_'.$position.'">%s</td><td>%s</td></tr>',
 					$model->getImage(0, true),
 					CHtml::textField('amount_'.$position,
 						$product['amount'], array(
@@ -56,10 +56,10 @@ if($products) {
 					$variations,
 					Shop::priceFormat($model->getPrice(@$product['Variations'])),
 					Shop::priceFormat($model->getPrice(@$product['Variations'], @$product['amount'])),
-					CHtml::link(Shop::t('Remove'), array(
+					CHtml::link(Shop::t('Eliminar'), array(
 							'//shop/shoppingCart/delete',
 							'id' => $position), array(
-								'confirm' => Shop::t('Are you sure?')))
+								'confirm' => Shop::t('¿Desea eliminar este objeto?')))
 					);
 
 			Yii::app()->clientScript->registerScript('amount_'.$position,"
@@ -110,12 +110,12 @@ echo '</table>';
 
  if(Yii::app()->controller->id != 'order') {
 echo '<div class="buttons">';
-echo CHtml::link(Shop::t('Buy additional Products'), array(
+echo CHtml::link(Shop::t('Agregar otros productos'), array(
 			'//shop/products'), array('class'=>'btn-previous'));
 
 echo '<br />';
 			
-echo CHtml::link(Shop::t('Buy this products'), array(
+echo CHtml::link(Shop::t('Comrpar estos productos'), array(
 			'//shop/order/create'), array('class'=>'btn-next')); 
 echo '</div>';
 }
@@ -125,5 +125,5 @@ echo '</div>';
 
 <?php
 
-} else echo Shop::t('Your shopping cart is empty'); ?>
+} else echo Shop::t('Su carro esta vacio'); ?>
 
