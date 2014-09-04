@@ -12,7 +12,7 @@ class ShopModule extends CWebModule
 
 	// Enable this to use the shop module together with the yii user
 	// management module
-	public $useWithYum = true;
+	public $useWithYum = false;
 
 	// Names of the tables
 	public $categoryTable = 'shop_category';

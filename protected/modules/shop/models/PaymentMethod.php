@@ -66,7 +66,7 @@ class PaymentMethod extends CActiveRecord
 	{
 		return array(
 			'id' => Shop::t('ID'),
-			'title' => Shop::t('Title'),
+			'title' => Shop::t('Nombre'),
 			'description' => Shop::t('Description'),
 			'tax_id' => Shop::t('Tax'),
 			'price' => Shop::t('Price'),

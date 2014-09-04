@@ -1,8 +1,7 @@
 <?php 
  ?>
-<div class="container-fluid">
+<div class="container-fluid " >
     
-       
             <div class="view">
                 <h3>
             		<?php echo CHtml::link(CHtml::encode($data->title), array('products/view', 'id' => $data->product_id)); ?>
@@ -13,16 +12,15 @@
             		  	if($data->images){
             		   		$this->renderPartial('/image/view', array('thumb' =>true, 'model' => $data->images[0]));
             			}else {
-            				echo CHtml::image(Shop::register('no-pic.jpg'));
+            				echo CHtml::image(Shop::register('no-pic.jpg'));                            
             			}?>
+                       
             	</div>
                 
-                 <div class="product-overview-description">
+                 <div class="product-overview-description col-md-8">
                     <p> <?php echo CHtml::encode($data->description); ?> </p>
-                    <p><strong> <?php echo Shop::priceFormat($data->price); ?></strong> <br />
-                    <p><?php echo Shop::pricingInfo(); ?></p>
-                  
-                    <p><?php echo CHtml::link(Shop::t('show product'), array('products/view', 'id' => $data->product_id), array('class' =>'show-product')); ?></p>
+                         <?php echo CHtml::link(Shop::t('Ver Producto'), array('products/view', 'id' => $data->product_id), array('class' =>'show-product')); ?>
+                    
                 </div>
                 
                 <div class="clear"></div>

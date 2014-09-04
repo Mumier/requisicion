@@ -16,11 +16,16 @@ class CustomerController extends Controller
 		));
 	}
 
+	public function actionPerfil()
+	{
+		$this->render('perfil',array(
+			'model'=>$this->loadModel(),
+		));
+	}
+
 	public function actionCreate()
 	{
-		if($model = Shop::getCustomer()) 
-			$address = $model->address;
-		else
+
 			$model = new Customer;
 
 		if(isset($_POST['Customer']))
@@ -36,10 +41,9 @@ class CustomerController extends Controller
 					$model->user_id = Yii::app()->user->id;
 
 				if($model->save()) {
-					Yii::app()->user->setState('customer_id', $model->customer_id);
 					$this->redirect(
 							array(
-								'//shop/order/create', 'customer'=>$model->customer_id));
+								'//customer/admin', 'customer'=>$model->customer_id));
 					}
 		}
 
@@ -51,9 +55,10 @@ class CustomerController extends Controller
 
 	public function actionUpdate($order = null)
 	{
-		if(Yii::app()->user->isGuest) {
-			$id = Yii::app()->user->getState('customer_id');
-			$model = Customer::model()->findByPk($id);
+		if(Yii::app()->user->isAdmin()) {
+			$model=$this->loadModel();
+			$this->performAjaxValidation($model);
+
 		}
 		else
 			$model = Customer::model()->find('user_id = :uid', array(
@@ -118,9 +123,10 @@ class CustomerController extends Controller
 			$model->attributes=$_GET['Customer'];
 
 		$this->render('admin',array(
-			'model'=>$model,
-		));
+					'model'=>$model,
+					));
 	}
+
 
 	public function loadModel()
 	{

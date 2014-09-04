@@ -1,4 +1,5 @@
 <?php
+echo '<div class="container-fluid">';
 echo Shop::renderFlash();
 echo '<div class="product-price-info">';
 echo Shop::pricingInfo();
@@ -36,15 +37,14 @@ if($variations = $model->getVariations()) {
 	}
 
 }
-
+echo '<div class="container-fluid">';
 echo '<div style="clear: both;"></div>';
-echo '<br />';
 echo CHtml::hiddenField('product_id', $model->product_id);
-echo CHtml::label(Shop::t('Amount'), 'ShoppingCart_amount');
+echo CHtml::label(Shop::t('Cantidad'), 'ShoppingCart_amount');
 echo ': ';
 echo CHtml::textField('amount', 1, array('size' => 3));
-echo '<br />';
-
-echo CHtml::submitButton(Shop::t('Add to shopping Cart'), array( 'class' => 'btn-add-cart'));
+echo CHtml::submitButton(Shop::t('Agregar'), array( 'class' => 'btn-add-cart'));
 echo CHtml::endForm();
+echo '</div>';
+
 ?>

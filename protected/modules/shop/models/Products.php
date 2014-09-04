@@ -36,6 +36,7 @@ class Products extends CActiveRecord
 			'variations' => array(self::HAS_MANY, 'ProductVariation', 'product_id', 'order' => 'position'),
 			'orders' => array(self::MANY_MANY, 'Order', 'ShopProductOrder(order_id, product_id)'),
 			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
+			'proveedor' => array(self::BELONGS_TO, 'Proveedor', 'proveedor_id'),
 			'tax' => array(self::BELONGS_TO, 'Tax', 'tax_id'),
 			'images' => array(self::HAS_MANY, 'Image', 'product_id'),
 			'shopping_carts' => array(self::HAS_MANY, 'ShoppingCart', 'product_id'),
@@ -115,11 +116,11 @@ class Products extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'product_id' => Yii::t('ShopModule.shop', 'Product'),
-			'title' => Yii::t('ShopModule.shop', 'Title'),
-			'description' => Yii::t('ShopModule.shop', 'Description'),
-			'price' => Yii::t('ShopModule.shop', 'Price'),
-			'category_id' => Yii::t('ShopModule.shop', 'Category'),
+			'product_id' => Yii::t('ShopModule.shop', 'Producto'),
+			'title' => Yii::t('ShopModule.shop', 'Nombre'),
+			'description' => Yii::t('ShopModule.shop', 'Descripcion'),
+			'price' => Yii::t('ShopModule.shop', 'Precio'),
+			'category_id' => Yii::t('ShopModule.shop', 'Categoria'),
 		);
 	}
 

@@ -23,8 +23,8 @@ $form=$this->beginWidget('CActiveForm', array(
 			)); 
 ?>
 
-<h2><?php echo Shop::t('Payment method'); ?></h2>
-<h3><?php echo Shop::t('Billing address'); ?></h3>
+<h2><?php echo Shop::t('Tipo de pago'); ?></h2>
+
 <div class="current_address">
 <?php $this->widget('zii.widgets.CDetailView', array(
 			'data'=>$customer->address,
@@ -35,7 +35,7 @@ $form=$this->beginWidget('CActiveForm', array(
 				'street',
 				'zipcode',
 				'city',
-				'country'
+				
 				),
 			)); ?>
 </div>
@@ -44,7 +44,7 @@ $form=$this->beginWidget('CActiveForm', array(
 echo CHtml::checkBox('toggle_billing',
 			$customer->billingAddress !== NULL, array(
 				'style' => 'float: left')); 
-	echo CHtml::label(Shop::t('alternative billing address'), 'toggle_billing', array(
+	echo CHtml::label(Shop::t('Usuario Alternativo'), 'toggle_billing', array(
 				'style' => 'cursor:pointer'));
 ?>
 <div class="form">
@@ -80,29 +80,24 @@ echo CHtml::checkBox('toggle_billing',
                 <?php echo $form->textField($billingAddress,'city',array('size'=>32,'maxlength'=>45)); ?>
                 <?php echo $form->error($billingAddress,'city'); ?>
             </div>
-        
-            <div class="row">
-				<?php echo $form->labelEx($billingAddress,'country'); ?>
-                <?php echo $form->textField($billingAddress,'country',array('size'=>45,'maxlength'=>45)); ?>
-                <?php echo $form->error($billingAddress,'country'); ?>
-            </div>
+
 		</div>
      </fieldset>
 <br />
 <hr />  
-<h3> <?php echo Shop::t('Payment method'); ?> </h3>
-<p> <?php echo Shop::t('Choose your Payment method'); ?> </p>
+<h3> <?php echo Shop::t('Tipo de cago'); ?> </h3>
+
 
 
 <?php
 $i = 0;
 foreach(PaymentMethod::model()->findAll() as $method) {
-	echo '<div class="row">';
+	echo '<div class="row-fluid">';
 	echo CHtml::radioButton("PaymentMethod", $i == 0, array(
 				'value' => $method->id));
 	echo '<div class="float-left">';
 	echo CHtml::label($method->title, 'PaymentMethod');
-	echo CHtml::tag('p', array(), $method->description);
+	
 	echo '</div>';
 	echo '</div>';
 	echo '<div class="clear"></div>';

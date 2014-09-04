@@ -22,8 +22,7 @@
 					"$('.price_information').tooltip(); ");
 
 			echo '<p class="price_information">';
-			echo Shop::t('All prices are including VAT') . '<br />';
-			echo Shop::t('All prices excluding shipping costs');
+
 			echo '</p>';
 			echo '<div class="tooltip">';
 				Yii::app()->controller->renderPartial('/shippingMethod/index'); 
@@ -89,9 +88,9 @@
 						'{total}' => Shop::priceFormat($price_total),
 						)); 
 			$price_total .= '<br />';
-			$price_total .= Shop::t('All prices are including VAT: {vat}', array(
+			$price_total .= Shop::t('', array(
 						'{vat}' => Shop::priceFormat($tax_total))) . '<br />';
-			$price_total .= Shop::t('All prices excluding shipping costs') . '<br />';
+			$price_total .= Shop::t('') . '<br />';
 
 			return $price_total;
 		}

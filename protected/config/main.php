@@ -7,7 +7,10 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Requisiciones UDES',
+	'name'=>'Requisiciones de compra',
+	'language'=>'es',
+	'sourceLanguage'=>'es',
+
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -16,18 +19,13 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-		'application.modules.user.models.*',
-        'application.modules.user.components.*'
+
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
 
-		'user'=>array(
-                'tableUsers' => 'users',
-                'tableProfiles' => 'profiles',
-                'tableProfileFields' => 'profiles_fields',
-        ),
+	
 
         'shop' => array(
             'debug' => false,
@@ -38,7 +36,7 @@ return array(
 		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'123456',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
@@ -48,10 +46,10 @@ return array(
 	// application components
 	'components'=>array(
 		        'user'=>array(
-                'class'=>'WebUser',
                 // enable cookie-based authentication
                 'allowAutoLogin'=>true,
-                'loginUrl'=>array('/user/login'),
+                'class'=>'WebUser',
+  
         ),
         'authManager'=>array(
                 'class'=>'RDbAuthManager',
@@ -75,7 +73,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=requisicion',
+			'connectionString' => 'mysql:host=localhost;dbname=reqcompra',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',

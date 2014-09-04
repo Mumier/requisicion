@@ -15,7 +15,7 @@ $this->menu=array(
 );
 ?>
 
-<h2> <?php echo Shop::t('Shipping method');?></h2>
+<h3> <?php echo Shop::t('Prioridad');?></h3>
 
 <?php 
 if($model)
@@ -23,7 +23,6 @@ if($model)
 				'data'=>$model,
 				'attributes'=>array(
 					'title',
-					'description',
-					'price',
+
 					),
 				)); ?>

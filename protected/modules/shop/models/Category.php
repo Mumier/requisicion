@@ -58,7 +58,7 @@ class Category extends CActiveRecord
 		return array(
 			'category_id' => '#',
 			'parent_id' => Yii::t('ShopModule.shop', 'Parent'),
-			'title' => Yii::t('ShopModule.shop', 'Category'),
+			'title' => Yii::t('ShopModule.shop', 'Categoria'),
 		);
 	}
 

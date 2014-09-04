@@ -65,7 +65,7 @@ class ProductSpecification extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
+			'title' => 'Nombre',
 		);
 	}
 

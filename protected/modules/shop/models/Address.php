@@ -26,10 +26,10 @@ class Address extends CActiveRecord
 	}
 
 	public function renderAddress() {
-		echo $this->firstname . ' ' . $this->lastname . '<br />';
-		echo $this->street . '<br />';
-		echo $this->zipcode . ' ' . $this->city . '<br />';
-		echo $this->country;
+		echo 'Nombre: '. $this->firstname . ' ' . $this->lastname . '<br />';
+		echo 'Cargo: '.$this->street . '<br />';
+		echo 'Departamento: '.$this->zipcode . '  Sede: ' . $this->city . '<br />';
+		echo 'Centro de costo: '. $this->country;
 	}
 
 	public function tableName()
@@ -64,12 +64,12 @@ class Address extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'firstname' => Yii::t('ShopModule.shop', 'Firstname'),
-			'lastname' => Yii::t('ShopModule.shop', 'Lastname'),
-			'street' => Shop::t('Street'),
-			'zipcode' =>Shop::t('Zipcode'),
-			'city' => Shop::t('City'),
-			'country' => Shop::t('Country'),
+			'firstname' => Yii::t('ShopModule.shop', 'Nombre'),
+			'lastname' => Yii::t('ShopModule.shop', 'Apellido'),
+			'street' => Shop::t('Cargo'),
+			'zipcode' =>Shop::t('Departamento'),
+			'city' => Shop::t('Sede'),
+			'country' => Shop::t('Centro de Costo'),
 		);
 	}
 
@@ -85,6 +85,8 @@ class Address extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('firstname',$this->firstname,true);
+		$criteria->compare('lastname',$this->lastname,true);
 		$criteria->compare('street',$this->street,true);
 		$criteria->compare('zipcode',$this->zipcode,true);
 		$criteria->compare('city',$this->city,true);

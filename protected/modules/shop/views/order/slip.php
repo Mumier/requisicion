@@ -9,7 +9,7 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
   <tr> 
     <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr> 
-          <td><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php $model->deliveryAddress->renderAddress(); ?><br>
+          <td><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><br>
             <br>
             <strong><?php echo Shop::t('Tipo de Pago'); ?></strong> 
 						<?php echo $model->paymentMethod->title; ?><br>
@@ -26,12 +26,12 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
         <tr bgcolor="#f1f1f1"> 
           <td width="50%"> 
             <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>
-							<?php echo Shop::t('Direccion de entrega'); ?>
+							<?php echo Shop::t('Pedido por: '); ?>
             </strong><br>
           </font></p></td>
           <td> 
             <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>              </strong><strong>
-							<?php echo Shop::t('Direccion de Pago'); ?>
+						
             </strong><br>
           </font> </p></td>
         </tr>
@@ -40,7 +40,7 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
 							<?php $model->deliveryAddress->renderAddress(); ?>
           </font></td>
           <td><font size="1" face="Verdana, Arial, Helvetica, sans-serif">
-							<?php $model->billingAddress->renderAddress(); ?>
+
           </font></td>
         </tr>
       </table>

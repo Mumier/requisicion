@@ -31,7 +31,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton(Yii::t('ShopModule.shop', 'Search)); ?>
+		<?php echo CHtml::submitButton(Yii::t('ShopModule.shop', 'Search')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

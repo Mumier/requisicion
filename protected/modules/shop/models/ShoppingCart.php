@@ -40,10 +40,10 @@ class ShoppingCart extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cart_id' => Yii::t('shop', 'Cart'),
-			'amount' => Yii::t('shop', 'Amount'),
-			'product_id' => Yii::t('shop', 'Product'),
-			'customer_id' => Yii::t('shop', 'Customer'),
+			'cart_id' => Yii::t('shop', 'Carro'),
+			'amount' => Yii::t('shop', 'Cantidad'),
+			'product_id' => Yii::t('shop', 'Producto'),
+			'customer_id' => Yii::t('shop', 'Usuario'),
 		);
 	}
 

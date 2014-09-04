@@ -3,6 +3,9 @@
 class Customer extends CActiveRecord
 {
 	public $terms_accepted = null;
+	public $password;
+	public $password_repeat;
+	public $address_firstname;
 
 	public static function model($className=__CLASS__)
 	{
@@ -17,10 +20,14 @@ class Customer extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('email', 'required'),
-			array('address_id, customer_id, user_id', 'numerical', 'integerOnly'=>true),
+			array('email, username', 'required'),
+			array('username', 'length', 'max'=>20),
+			array('password', 'length', 'max'=>32),
+			array('password', 'compare' ),
+			array('password_repeat', 'safe'),
+			array('address_id, customer_id', 'numerical', 'integerOnly'=>true),
 			array('email', 'CEmailValidator'),
-			array('customer_id, user_id, email', 'safe', 'on'=>'search'),
+			array('customer_id, email, username', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -44,8 +51,36 @@ class Customer extends CActiveRecord
 			'billing_address_id' => Yii::t('ShopModule.shop', 'Billing Address'),
 			'delivery_address_id' => Yii::t('ShopModule.shop', 'Delivery Address'),
 			'email' => Yii::t('ShopModule.shop', 'Email'),
+			'username' => Yii::t('ShopModule.shop', 'Username'),
+			'password' => Yii::t('ShopModule.shop', 'Password'),
+			'password_repeat' => Yii::t('ShopModule.shop', 'Password repeat'),
+
 		);
 	}
+
+	public function hash($value)
+	{
+		return crypt($value);
+	}
+
+	protected function beforesave()
+	{
+		if(parent::beforesave()){
+			$this->pwd_hash = $this->hash($this->password);
+			return true;
+		}
+		return false;
+	}
+
+	public function check($value){
+
+		$new_hash=crypt($value, $this->pwd_hash);
+		if($new_hash == $this->pwd_hash){
+			return true;
+		}
+		return false;
+	}
+
 
 	public function search()
 	{
@@ -57,8 +92,21 @@ class Customer extends CActiveRecord
 
 		$criteria->compare('email',$this->email,true);
 
+		$criteria->compare('username',$this->username);
+
+		$criteria->compare('address.firstname',$this->address_firstname,true);
+
+		$sort = new CSort;
+		$sort->attributes = array(
+			'address_firstname' => array(
+				'asc'=>'address.firstname',
+				'desc'=>'address.firstname DESC',
+				),'*',
+			);
+
 		return new CActiveDataProvider('Customer', array(
 			'criteria'=>$criteria,
+			'sort'=>$sort,
 		));
 	}
 }

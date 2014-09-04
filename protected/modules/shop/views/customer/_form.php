@@ -13,10 +13,9 @@ $form=$this->beginWidget('CActiveForm', array(
 			'enableAjaxValidation'=>false,
 			)); ?>
 
-<?php echo $form->errorSummary(array($customer, $address, )); ?>
+<?php echo $form->errorSummary(array($customer, $address)); ?>
 
 		<?php echo $form->hiddenField($customer, 'user_id', array('value'=> Yii::app()->user->id)); ?>
-		
 
 	<div class="row">
 		<?php echo $form->labelEx($address,'firstname'); ?>
@@ -30,11 +29,28 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php echo $form->error($address,'lastname'); ?>
 	</div>
 
-
 	<div class="row">
 		<?php echo $form->labelEx($customer,'email'); ?>
 		<?php echo $form->textField($customer,'email',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($customer,'email'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($customer,'username'); ?>
+		<?php echo $form->textField($customer,'username',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($customer,'username'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($customer,'password'); ?>
+		<?php echo $form->passwordField($customer,'password',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($customer,'password'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($customer,'password_repeat'); ?>
+		<?php echo $form->passwordField($customer,'password_repeat',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($customer,'password'); ?>
 	</div>
 
 	<div class="row">
@@ -47,6 +63,7 @@ $form=$this->beginWidget('CActiveForm', array(
 		<?php echo $form->labelEx($address,'city'); ?>
 		<?php echo $form->textField($address,'zipcode',array('size'=>10,'maxlength'=>45)); ?>
 		<?php echo $form->error($address,'zipcode'); ?>
+
 		<?php echo $form->textField($address,'city',array('size'=>32,'maxlength'=>45)); ?>
 		<?php echo $form->error($address,'city'); ?>
 	</div>

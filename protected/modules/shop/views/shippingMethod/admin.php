@@ -5,13 +5,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ShippingMethod', 'url'=>array('index')),
-	array('label'=>'Create ShippingMethod', 'url'=>array('create')),
+	array('label'=>'Listar Prioridad', 'url'=>array('index')),
+	array('label'=>'Crear Prioridad', 'url'=>array('create')),
 );
 
 ?>
 
-<h1>Manage Shipping Methods</h1>
+<h1>Administrar Prioridades</h1>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'shipping-method-grid',

@@ -30,18 +30,18 @@ echo '<hr />';
 				
 echo '<p>';
 	$shipping = ShippingMethod::model()->findByPk(Yii::app()->user->getState('shipping_method'));
-	echo '<strong>'.Shop::t('Shipping Method').': </strong>'.' '.$shipping->title.' ('.$shipping->description.')';
+	echo '<strong>'.Shop::t('Prioridad').': </strong>'.' '.$shipping->title.' ('.$shipping->description.')';
 	echo '<br />';
-	echo CHtml::link(Shop::t('Edit shipping method'), array(
+	echo CHtml::link(Shop::t('Editar Prioridad'), array(
 			'//shop/shippingMethod/choose', 'order' => true));
 			echo '</p>';
 
 
 echo '<p>';
 	$payment = 	PaymentMethod::model()->findByPk(Yii::app()->user->getState('payment_method'));
-	echo '<strong>'.Shop::t('Payment method').': </strong>'.' '.$payment->title.' ('.$payment->description.')';	
+	echo '<strong>'.Shop::t('Tipo de Pago').': </strong>'.' '.$payment->title.' ('.$payment->description.')';	
 	echo '<br />';
-	echo CHtml::link(Shop::t('Edit payment method'), array(
+	echo CHtml::link(Shop::t('Editar Tipo de Pago'), array(
 			'//shop/paymentMethod/choose', 'order' => true));
 echo '</p>';
 
@@ -50,7 +50,7 @@ echo '<hr />';
 $this->renderPartial('application.modules.shop.views.shoppingCart.view'); 
 
 
-echo '<h3>'.Shop::t('Please add additional comments to the order here').'</h3>'; 
+echo '<h3>'.Shop::t('Por favor ingrese alguna observacion o justificacion').'</h3>'; 
 
 echo CHtml::textArea('Order[Comment]',
 		@Yii::app()->user->getState('order_comment'), array('style'=>'width:600px; height:100px;padding:10px;'));

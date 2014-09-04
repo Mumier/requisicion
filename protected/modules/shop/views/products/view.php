@@ -5,15 +5,12 @@ $this->breadcrumbs=array(
 );
 
 ?>
-
+<div class="container-fluid">
 <div class="product-header">
     <h2 class="title"><?php echo $model->title; ?></h2>
-    <?php printf('<h2 class="price">%s</h2>',
-            Shop::priceFormat($model->price));
-    ?>
 </div>
 
-<div class="clear"></div>
+
 
 <div class="product-images">
 <?php 
@@ -27,12 +24,6 @@ $this->renderPartial('/image/view', array( 'model' => new Image()));
 ?>	
 </div>
 
-<div class="product-options"> 
-	<?php $this->renderPartial('/products/addToCart', array(
-			'model' => $model)); ?>
-</div>
-
-
 <div class="product-description">
 	<p> <?php echo $model->description; ?> </p>
 </div>
@@ -41,10 +32,11 @@ $this->renderPartial('/image/view', array( 'model' => new Image()));
 <?php 
 $specs = $model->getSpecifications();
 if($specs) {
+	echo '<div class="">';
 	echo '<table>';
 	
 	printf ('<tr><td colspan="2"><strong>%s</strong></td></tr>',
-			Shop::t('Product Specifications'));
+			Shop::t('Detalles del producto'));
 			
 	foreach($specs as $key => $spec) {
 		if($spec != '')
@@ -53,6 +45,11 @@ if($specs) {
 					$spec);
 	}
 	
-	echo '</table>';
+	echo '</table></div>';
 } 
 ?>
+<div class="product-options"> 
+	<?php $this->renderPartial('/products/addToCart', array(
+			'model' => $model)); ?>
+</div>
+</div>

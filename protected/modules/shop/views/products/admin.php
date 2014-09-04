@@ -1,6 +1,7 @@
 <?php 
 
-$model = new Products();
+
+//$model = new Products();
 
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'products-grid',
@@ -31,5 +32,5 @@ $this->widget('zii.widgets.grid.CGridView', array(
 ); 
 
 
-echo CHtml::link(Shop::t('Create a new Product'), array('products/create'));
+echo CHtml::link(Shop::t('Ingresar nuevo producto'), array('products/create'));
 ?>

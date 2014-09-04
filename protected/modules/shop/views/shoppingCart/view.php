@@ -10,10 +10,11 @@ if(!isset($products))
 if(!isset($this->breadcrumbs) || ($this->breadcrumbs== array()))
 	$this->breadcrumbs = array(
 			Shop::t('Shop') => array('//shop/products/'),
-			Shop::t('Shopping Cart'));
+			Shop::t('Requisicion de compra'));
 ?>
 
-<h2><?php echo Shop::t('Shopping cart'); ?></h2>
+<h2><?php echo Shop::t('Requisicion de compra'); ?></h2>
+<br>
 
 
 <?php
@@ -101,7 +102,7 @@ if($products) {
 	}
 echo '<tr>
 <td class="text-right no-border" colspan="6">
-<p class="price_total">'.Shop::getPriceTotal().'</p></td>
+<br><p class="price_total" style="float:right;">'.Shop::getPriceTotal().'</p></td>
 <td class="no-border"></td></tr>';
 echo '</table>';
 ?>
@@ -115,7 +116,7 @@ echo CHtml::link(Shop::t('Agregar otros productos'), array(
 
 echo '<br />';
 			
-echo CHtml::link(Shop::t('Comrpar estos productos'), array(
+echo CHtml::link(Shop::t('Generar Requisicion'), array(
 			'//shop/order/create'), array('class'=>'btn-next')); 
 echo '</div>';
 }

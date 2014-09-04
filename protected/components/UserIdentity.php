@@ -17,7 +17,28 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$users=array(
+		$user=ShopCustomer::model()->findByAttributes(array(
+				'username' => $this->username));
+
+
+		if($user===null)
+			$this->errorCode=self::ERROR_USERNAME_INVALID;
+		else
+			if($user->check($this->password))
+		{
+		
+            $this->setState('customer_id', $user->customer_id);
+            $this->errorCode=self::ERROR_NONE;
+		}
+		else
+			$this->errorCode=self::ERROR_PASSWORD_INVALID;
+		return !$this->errorCode;
+	}
+
+
+}
+
+/*$users=array(
 			// username => password
 			'demo'=>'demo',
 			'admin'=>'admin',
@@ -29,5 +50,4 @@ class UserIdentity extends CUserIdentity
 		else
 			$this->errorCode=self::ERROR_NONE;
 		return !$this->errorCode;
-	}
-}
+	}*/

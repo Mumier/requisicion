@@ -13,7 +13,7 @@ if(!isset($deliveryAddress))
 if(!isset($this->breadcrumbs))
 	$this->breadcrumbs = array(
 			Shop::t('Order'),
-			Shop::t('Shipping method'));
+			Shop::t('Ususario'));
 			
 $form=$this->beginWidget('CActiveForm', array(
 			'id'=>'customer-form',
@@ -22,9 +22,9 @@ $form=$this->beginWidget('CActiveForm', array(
 			)); 
 ?>
 
-<h2> <?php echo Shop::t('Shipping options'); ?> </h2>
 
-<h3> <?php echo Shop::t('Shipping address'); ?></h3>
+
+<h2> <?php echo Shop::t('Usuario'); ?></h2>
 
 <div class="current_address">
 	<?php $this->widget('zii.widgets.CDetailView', array(
@@ -36,7 +36,7 @@ $form=$this->beginWidget('CActiveForm', array(
                     'street',
                     'zipcode',
                     'city',
-                    'country'
+                    
                     ),
                 )); ?>
 </div>
@@ -45,7 +45,7 @@ $form=$this->beginWidget('CActiveForm', array(
 echo CHtml::checkBox('toggle_delivery',
 			$customer->deliveryAddress !== NULL, array(
 				'style' => 'float: left')); 
-	echo CHtml::label(Shop::t('alternative delivery address'), 'toggle_delivery', array(
+	echo CHtml::label(Shop::t('Usuario Alternativo'), 'toggle_delivery', array(
 				'style' => 'cursor:pointer'));
 	
 ?>
@@ -54,8 +54,8 @@ echo CHtml::checkBox('toggle_delivery',
 	<fieldset id="delivery_information" style="display: none;">
 		<div class="payment_address">
 
-			<h3> <?php echo Shop::t('new shipping address'); ?> </h3>
-            <p><?php echo Shop::t('Shipping new address'); ?></p>
+			<h3> <?php echo Shop::t('Usuario Alternativo'); ?> </h3>
+            
             
             <div class="row">
                 <?php echo $form->labelEx($deliveryAddress,'firstname'); ?>
@@ -76,25 +76,21 @@ echo CHtml::checkBox('toggle_delivery',
             </div>
 
             <div class="row">
-                <?php echo $form->labelEx($deliveryAddress,'city'); ?>
+                <?php echo $form->labelEx($deliveryAddress,'zipcode'); ?>
                 <?php echo $form->textField($deliveryAddress,'zipcode',array('size'=>10,'maxlength'=>45)); ?>
                 <?php echo $form->error($deliveryAddress,'zipcode'); ?>
-        
+        		<?php echo $form->labelEx($deliveryAddress,'city'); ?>
                 <?php echo $form->textField($deliveryAddress,'city',array('size'=>32,'maxlength'=>45)); ?>
                 <?php echo $form->error($deliveryAddress,'city'); ?>
             </div>
             
-            <div class="row">
-                <?php echo $form->labelEx($deliveryAddress,'country'); ?>
-                <?php echo $form->textField($deliveryAddress,'country',array('size'=>45,'maxlength'=>45)); ?>
-                <?php echo $form->error($deliveryAddress,'country'); ?>
-            </div>
+
 		</div>
 	</fieldset>
 <br />
 <hr />  
-<h3> <?php echo Shop::t('Shipping Method'); ?> </h3>
-<p> <?php echo Shop::t('Choose your Shipping method'); ?> </p>
+<h3> <?php echo Shop::t('Prioridad'); ?> </h3>
+
 
 <?php
 $i = 0;
@@ -106,15 +102,13 @@ foreach(ShippingMethod::model()->findAll() as $method) {
 	echo '<div class="float-left">';
 	echo CHtml::label($method->title, 'ShippingMethod');
 	echo CHtml::tag('p', array(), $method->description);
-	echo CHtml::tag('p', array(), Shop::t('Price: ') . Shop::priceFormat($method->price));
+	
 	echo '</div>';
 	echo '</div>';
 	echo '<div class="clear"></div>';
 	$i++;
 }
-	?>
-
-	
+	?>	
 
 <?php
  Yii::app()->clientScript->registerScript('toggle', "

@@ -14,7 +14,7 @@ class OrderController extends Controller
 	public function accessRules() {
 		return array(
 				array('allow',
-					'actions'=>array('view', 'create', 'confirm', 'success', 'failure'),
+					'actions'=>array('index','view', 'create', 'confirm', 'success', 'failure','mine'),
 					'users' => array('*'),
 					),
 				array('allow',
@@ -220,13 +220,28 @@ class OrderController extends Controller
 	public function actionAdmin()
 	{
 		$model=new Order('search');
+		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Order']))
 			$model->attributes=$_GET['Order'];
 
 		$this->render('admin',array(
-					'model'=>$model,
-					));
+			'model'=>$model,
+		));
 	}
+
+	public function actionMine()
+	{
+		$model=new Order('search');
+		$model->unsetAttributes(); 
+		$model->customer_id=Yii::app()->user->getState('customer_id');
+		if(isset($_GET['Order']))
+			$model->attributes=$_GET['Order'];
+
+		$this->render('mine',array(
+			'model'=>$model,
+		));
+	}
+
 
 	public function loadModel()
 	{
@@ -240,4 +255,20 @@ class OrderController extends Controller
 		return $this->_model;
 	}
 
+		public function actionIndex()
+	{
+		$dataProvider=new CActiveDataProvider('Order');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
+
+		protected function performAjaxValidation($model)
+	{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='order-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+	}
 }

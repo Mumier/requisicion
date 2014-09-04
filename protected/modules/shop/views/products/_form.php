@@ -43,7 +43,7 @@ return $str;
 
 <div style="float: left;">
 <fieldset>
-<legend> <?php echo Shop::t('Article Information'); ?> </legend>
+<legend> <?php echo Shop::t('Informacion de articulo'); ?> </legend>
 <div class="row">
 <?php echo $form->labelEx($model,'category_id'); ?>
 <?php $this->widget('application.modules.shop.components.Relation', array(
@@ -54,10 +54,21 @@ return $str;
 <?php echo $form->error($model,'category_id'); ?>
 </div>
 
+
 <div class="row">
 <?php echo $form->labelEx($model,'title'); ?>
 <?php echo $form->textField($model,'title',array('size'=>45,'maxlength'=>45)); ?>
 <?php echo $form->error($model,'title'); ?>
+</div>
+
+<div class="row">
+<?php echo $form->labelEx($model,'proveedor_id'); ?>
+<?php $this->widget('application.modules.shop.components.Relation', array(
+			'model' => $model,
+			'relation' => 'proveedor',
+			'fields' => 'nom_proveedor',
+			'showAddButton' => false)); ?>
+<?php echo $form->error($model,'category_id'); ?>
 </div>
 
 <div class="row">
@@ -70,11 +81,11 @@ return $str;
 
 
 <fieldset>
-<legend> <?php echo Yii::t('ShopModule.shop', 'Article Specifications'); ?> </legend>
+<legend> <?php echo Yii::t('ShopModule.shop', 'Datos especificos'); ?> </legend>
 
 <div class="row">
 <?php echo $form->labelEx($model,'price'); ?>
-<?php echo $form->textField($model,'price',array('size'=>45,'maxlength'=>45)); ?>
+<?php echo $form->textField($model,'price',array('size'=>30,'maxlength'=>30)); ?>
 <?php echo $form->error($model,'price'); ?>
 </div>
 
@@ -83,23 +94,23 @@ return $str;
 		<?php echo CHtml::label($specification->title, ''); ?>
 		<?php echo CHtml::textField("Specifications[{$specification->title}]",
 				$model->getSpecification($specification->title),array(
-					'size'=>45,'maxlength'=>45)); ?>
+					'size'=>30,'maxlength'=>30)); ?>
 		</div>
 		<?php } ?>
 
 		</fieldset>
 <?php if(!$model->isNewRecord) { ?>
 		<fieldset>
-		<legend> <?php echo Shop::t('Article Variations'); ?> </legend>
+		<legend> <?php echo Shop::t('Variaciones'); ?> </legend>
 		<div id="variations">
 
 <table>
 		<?php 
 		printf('<tr><th>%s</th><th>%s</th><th colspan = 2>%s</th><th>%s</th></tr>',
-				Shop::t('Specification'), 
-				Shop::t('Value'), 
-				Shop::t('Price adjustion'),
-				Shop::t('Position'));
+				Shop::t('Especificacion'), 
+				Shop::t('Valor'), 
+				Shop::t('Ajuste de precio'),
+				Shop::t('Posicion'));
 
 
 		$i = 0;
@@ -125,8 +136,8 @@ return $str;
 
 				<div class="row buttons">
 				<?php echo CHtml::submitButton($model->isNewRecord ?
-						Yii::t('ShopModule.shop', 'Create') 
-						: Yii::t('ShopModule.shop', 'Save')); ?>
+						Yii::t('ShopModule.shop', 'Crear') 
+						: Yii::t('ShopModule.shop', 'Guardar')); ?>
 				</div>
 
 				<?php $this->endWidget(); ?>

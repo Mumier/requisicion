@@ -3,7 +3,7 @@ $this->breadcrumbs=array();
 
 ?>
 
-<h1> <?php echo Yii::t('ShopModule.shop', 'Your Shopping Cart contains: '); ?> </h1>
+<h1> <?php echo Yii::t('ShopModule.shop', 'Componentes de la requisicion: '); ?> </h1>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'shopping cart-grid',

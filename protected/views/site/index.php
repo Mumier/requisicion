@@ -3,18 +3,16 @@
 
 $this->pageTitle=Yii::app()->name;
 ?>
+<div class="container-fluid">
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+<div class="jumbotron">
+ <h1> <?php echo CHtml::encode(Yii::app()->name); ?></h1>
 
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
+<p>Bienvenido a la plataforma de requisiciones de compra de la universidad de santander.</p>
 
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+<p>Para poder crear una requisicion de compra debe de estar registrado en el sistema</p>
+
+  <p><?php echo CHtml::link('Iniciar Sesion', array('site/login'), array('class' => 'btn btn-primary btn-lg'));?></p>
+</div>
+</div>

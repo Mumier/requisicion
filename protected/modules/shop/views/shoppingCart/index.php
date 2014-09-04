@@ -1,5 +1,5 @@
 <h3> 
-<?php echo Yii::t('ShopModule.shop', 'Su Carro de Compras'); ?> 
+<?php echo Yii::t('ShopModule.shop', 'Requisicion de compra'); ?> 
 </h3>
 <hr />
 
@@ -29,7 +29,7 @@ if(isset($carts))
 	<hr />
 
 <?php	echo CHtml::link(Yii::t('ShopModule.shop', 'Configurar carro'), array('shoppingCart/admin')); ?>
-&nbsp;
+
 <?php	echo CHtml::link(Yii::t('ShopModule.shop', 'Comprar estos productos'), array('order/create')); 
 
 } else

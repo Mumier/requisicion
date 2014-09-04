@@ -4,9 +4,6 @@
 	<?php echo CHtml::link(CHtml::encode($data->order_id), array('view', 'id'=>$data->order_id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('customer_id')); ?>:</b>
-	<?php echo CHtml::encode($data->customer_id); ?>
-	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('ordering_date')); ?>:</b>
 	<?php echo CHtml::encode($data->ordering_date); ?>

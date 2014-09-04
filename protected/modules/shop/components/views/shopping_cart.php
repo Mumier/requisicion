@@ -1,3 +1,4 @@
+
 <div id="shopping-cart">
 <div id="shopping-cart-content">
 <?php
@@ -18,15 +19,7 @@ if($products) {
 				);
 	}
 
-	if($shippingMethod = Shop::getShippingMethod()) {
-		printf('<tr>
-				<td class="cart-left">1</td>
-				<td class="cart-middle">%s</td>
-				<td class="cart-right">%s</td></tr>',
-				Shop::t('Shipping costs'),
-				Shop::priceFormat($shippingMethod->price)
-				);
-	} 
+
 
 	printf('<tr>
 			<td colspan="3" class="cart-right cart-sum price_total"><strong>%s</strong></td>
@@ -35,6 +28,9 @@ if($products) {
 	echo '</table>';
 }
 ?>
+
 </div>
-<div id="shopping-cart-footer"></div>
+<div id="shopping-cart-footer">
+	<?php	echo CHtml::link(Yii::t('ShopModule.shop', 'Generar Requisicion'), array('order/create')); ?>
+</div>
 </div>

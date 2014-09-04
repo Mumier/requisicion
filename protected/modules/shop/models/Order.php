@@ -17,7 +17,7 @@ class Order extends CActiveRecord
 		return array(
 			array('customer_id, ordering_date, delivery_address_id, billing_address_id, payment_method', 'required'),
 			array('customer_id, ordering_done, ordering_confirmed', 'numerical', 'integerOnly'=>true),
-			array('order_id, customer_id, ordering_date, ordering_done, ordering_confirmed, comment', 'safe'),
+			array('order_id, customer_id, ordering_date, ordering_done, ordering_confirmed, comment', 'safe','on'=>'search'),
 		);
 	}
 
@@ -62,12 +62,15 @@ class Order extends CActiveRecord
 	{
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('order_id',$this->order_id);
-		$criteria->compare('customer_id',$this->customer_id);
+		$criteria->compare('order_id',$this->order_id,true);
+		$criteria->compare('customer_id',$this->customer_id,true);
+		
 		$criteria->compare('ordering_date',$this->ordering_date,true);
 		$criteria->compare('ordering_done',$this->ordering_done);
 		$criteria->compare('ordering_confirmed',$this->ordering_confirmed);
 
-		return new CActiveDataProvider('Order', array( 'criteria'=>$criteria,));
+		return new CActiveDataProvider(get_class($this), array(
+			'criteria'=>$criteria,
+		));
 	}
 }

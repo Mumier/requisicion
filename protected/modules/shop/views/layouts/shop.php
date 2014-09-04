@@ -37,39 +37,45 @@
 
 		<div id="mainmenu">
 		<?php
-			$items = array();
+			$customer = Yii::app()->user->getState('customer_id');			
+			$items = array();			
 			$items[] = array('label'=>'Inicio', 'url'=>array('/site/index'));
-			$items[] = array('label'=>'Productos', 'url'=>array('/shop/products/index'));
-			$items[] = array('label'=>'Iniciar Sesión', 'url'=>array('/user/login'), 'visible'=>Yii::app()->user->isGuest);
+			$items[] = array('label'=>'Mi perfil', 'url'=>array('/shop/customer/perfil/id/'.$customer));
+			$items[] = array('label'=>'Productos', 'url'=>array('/shop/products/index'));			
+			//$items[] = array('label'=>'Administrador', 'url'=>array('/shop/shop/admin'),'visible'=>Yii::app()->user->isAdmin());
+			$items[] = array('label'=>'Mis Requisiciones', 'url'=>array('/shop/order/mine'));	
+			$items[] = array('label'=>'Reporte', 'url'=>array('/shop/order/admin'),'visible'=>Yii::app()->user->isAdmin());
+			$items[] = array('label'=>'Iniciar Sesión', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest);
 			$items[] = array('label'=>'Cerrar Sesión ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest);
-			$items[] = array('label'=>'Administrador', 'url'=>array('/shop/shop/admin'), 'visible'=>Yii::app()->getModule('user')->isAdmin());
-//			$items[] = array('label'=>'Admin', 'url'=>array('/shop/shop/admin'));
+
 
  $this->widget('zii.widgets.CMenu',array( 			
 			'items'=>$items,
 		)); ?>
 	</div><!-- mainmenu -->
-
+	<div class="container-fluid">
 	<div id="content">
-	<div style="float: right; max-height: 200px; width: 200px; margin: 5px;">
-	<?php
-	$this->widget('ShoppingCartWidget'); 
-	$this->widget('ProductCategoriesWidget'); 
-	if(!Yii::app()->user->isGuest) 
-		$this->widget('AdminWidget');
 
-	?>	
+	<div style="float: right; max-height: 200px; width: 200px; margin: 5px;">
+		<?php
+		$this->widget('ShoppingCartWidget'); 
+		$this->widget('ProductCategoriesWidget'); 
+		if(Yii::app()->user->isAdmin()) 
+			$this->widget('AdminWidget');
+
+		?>	
 	</div>
 
-	<div style="width: 900px;">
+	<div style="width: 1000px;">
 	<?php echo $content; ?>
+	</div>
 	</div>
 	</div>
 
 	<div style="clear: both;"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> Universidad de Santader.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> Universidad de Santander.<br/>
 		Todos los derechos reservados.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->

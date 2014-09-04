@@ -19,29 +19,37 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-	<h1><?php echo Yii::t('ShopModule.shop', 'Admin Customers'); ?></h1>
 
-<?php echo CHtml::link(Yii::t('ShopModule.shop', 'Advanced Search'),'#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php 
+
+$model = new Customer;
+
+
+$this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'customer-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-	'columns'=>array(
-		'customer_id',
-		'user_id',
-		'address',
-		'zipcode',
-		'city',
-		'country',
+	'columns'=>array(		
+		'address.zipcode',
+		'address.city',
+		'address.country',
 		'email',
+		'username',		
 		array(
 			'class'=>'CButtonColumn',
+			'template' => '{view}{update}{delete}',
+			'viewButtonUrl' => 'Yii::app()->createUrl("/shop/customer/view",
+			array("id" => $data->customer_id))',
+			'updateButtonUrl' => 'Yii::app()->createUrl("/shop/customer/update",
+			array("id" => $data->customer_id))',
+			'deleteButtonUrl' => 'Yii::app()->createUrl("/shop/customer/delete",
+			array("id" => $data->customer_id))'
+
 		),
 	),
-)); ?>
+)); 
+
+echo CHtml::link(Shop::t('Ingresar nuevo Usuario'), array('customer/create'));
+
+?>

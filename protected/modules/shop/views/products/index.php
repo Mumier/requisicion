@@ -5,9 +5,21 @@ $this->breadcrumbs=array(
 Shop::renderFlash();
 ?>
 
-<h2><?php echo Shop::t('Todos los productos'); ?></h2>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'products-grid',
+	'dataProvider'=>$model->search(),
+	'filter'=>$model,
+	'columns'=>array(
+		'title',
+		'price',
+		array(
+			'class'=>'CButtonColumn', 
+			'template' => '{view}',
+			'viewButtonUrl' => 'Yii::app()->createUrl("/shop/products/view",
+				array("id" => $data->product_id))',
+		)
+	)
+)
+); 

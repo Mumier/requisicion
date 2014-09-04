@@ -5,12 +5,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>Shop::t('Create PaymentMethod'), 'url'=>array('create')),
+	array('label'=>Shop::t('Crear Tipo de Pago'), 'url'=>array('create')),
 );
 
 ?>
 
-<h2><?php echo Shop::t('Manage Payment Methods'); ?></h2>
+<h2><?php echo Shop::t('Administrar Tipo de Pago'); ?></h2>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'payment-method-grid',
